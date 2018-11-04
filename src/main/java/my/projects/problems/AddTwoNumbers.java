@@ -15,7 +15,6 @@ import my.projects.utils.ListNode;
 public class AddTwoNumbers {
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
         ListNode dummyhead = new ListNode(0);
 
         ListNode curr = dummyhead;
@@ -31,8 +30,12 @@ public class AddTwoNumbers {
 
             curr = curr.next;
 
-            l1 = l1.next;
-            l2 = l2.next;
+            if(l1 != null) l1 = l1.next;
+            if(l2 != null) l2 = l2.next;
+        }
+
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
         }
 
         return dummyhead.next;
